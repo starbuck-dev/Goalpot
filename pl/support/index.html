@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goalpot — pomoc · Goalpot</title>
+    <meta name="description" content="Odpowiedzi o celach i długach, wersji bezpłatnej i zakupie, sposobie liczenia dat i odsetek, okresach 0 %, odnotowywaniu spłat i wpłat, kopiach zapasowych, przypomnieniach, eksporcie i usuwaniu danych.">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://starbuck-dev.github.io/Goalpot/pl/support/">
+    <link rel="alternate" hreflang="en" href="https://starbuck-dev.github.io/Goalpot/support/">
+    <link rel="alternate" hreflang="de" href="https://starbuck-dev.github.io/Goalpot/de/support/">
+    <link rel="alternate" hreflang="fr" href="https://starbuck-dev.github.io/Goalpot/fr/support/">
+    <link rel="alternate" hreflang="es" href="https://starbuck-dev.github.io/Goalpot/es/support/">
+    <link rel="alternate" hreflang="it" href="https://starbuck-dev.github.io/Goalpot/it/support/">
+    <link rel="alternate" hreflang="pt-BR" href="https://starbuck-dev.github.io/Goalpot/pt-br/support/">
+    <link rel="alternate" hreflang="nl" href="https://starbuck-dev.github.io/Goalpot/nl/support/">
+    <link rel="alternate" hreflang="pl" href="https://starbuck-dev.github.io/Goalpot/pl/support/">
+    <link rel="alternate" hreflang="ru" href="https://starbuck-dev.github.io/Goalpot/ru/support/">
+    <link rel="alternate" hreflang="x-default" href="https://starbuck-dev.github.io/Goalpot/support/">
+    <style>
+:root {
+    color-scheme: light dark;
+    --bg: #FFFDF4; --card: #FFFFFF; --ink: #111111; --mute: #5C5A52; --line: #E6E2D2; --yellow: #F5C400;
+    --on-yellow: #111111; --shadow: rgba(17, 17, 17, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212; --card: #1C1C1A; --ink: #F4F2EA; --mute: #A8A69C; --line: #2E2E2B; --yellow: #FFD21F;
+        --on-yellow: #111111; --shadow: rgba(0, 0, 0, 0.5);
+    }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--yellow); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 16px 8px; }
+.brand, h1, h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+    font-weight: 900; font-stretch: condensed; text-transform: uppercase; letter-spacing: 0.01em;
+}
+.brand { color: var(--ink); font-size: 24px; line-height: 1; text-decoration: none; }
+.lang { position: relative; font-size: 15px; }
+.lang summary {
+    list-style: none; cursor: pointer; padding: 6px 14px; border-radius: 8px; white-space: nowrap;
+    background: var(--card); color: var(--ink); border: 1.5px solid var(--ink);
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: " \25BE"; color: var(--mute); }
+.lang ul {
+    position: absolute; right: 0; z-index: 2; margin: 8px 0 0; padding: 6px; list-style: none; min-width: 200px;
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    box-shadow: 0 12px 32px var(--shadow);
+}
+.lang li a { display: block; padding: 7px 12px; border-radius: 6px; color: var(--ink); text-decoration: none; }
+.lang li a:hover, .lang li a:focus-visible { background: var(--line); }
+.lang li a[aria-current="page"] { font-weight: 700; box-shadow: inset 4px 0 0 var(--yellow); }
+.card {
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 24px; margin: 16px 0;
+}
+h1 { font-size: 34px; line-height: 1.05; margin: 0 0 12px; }
+h2 { font-size: 21px; line-height: 1.15; margin: 32px 0 8px; }
+h3 { font-size: 17px; line-height: 1.35; margin: 0 0 6px; }
+.signal {
+    height: 12px; border: 1.5px solid var(--ink); border-radius: 3px; background: var(--card);
+    margin: 0 0 16px; overflow: hidden;
+}
+.signal span { display: block; width: 62%; height: 100%; background: var(--yellow); border-right: 1.5px solid var(--ink); }
+p, li { color: var(--mute); }
+strong { color: var(--ink); }
+.date { font-size: 14px; color: var(--mute); margin: 0 0 20px; font-variant-numeric: tabular-nums; }
+.summary { border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); padding: 4px 0; margin: 16px 0; }
+.lead { font-size: 18px; color: var(--mute); }
+.button {
+    display: inline-block; background: var(--yellow); color: var(--on-yellow); font-weight: 700;
+    padding: 12px 28px; border-radius: 8px; border: 1.5px solid var(--on-yellow); text-decoration: none;
+    margin-top: 8px;
+}
+.store { margin: 16px 0 0; }
+.links { display: grid; gap: 12px; margin: 16px 0; }
+.links a {
+    display: block; background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 16px 20px; text-decoration: none;
+}
+.links strong { display: block; color: var(--ink); }
+.links span { color: var(--mute); font-size: 15px; }
+.faq h3 { color: var(--ink); }
+.faq p:last-child { margin-bottom: 0; }
+mark.todo { background: var(--yellow); color: var(--on-yellow); padding: 0 4px; border-radius: 4px; }
+footer { padding: 16px 16px 40px; font-size: 14px; color: var(--mute); }
+footer p { color: var(--mute); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+<header class="wrap top">
+    <a class="brand" href="../">Goalpot</a>
+    <details class="lang">
+        <summary aria-label="Język">Polski</summary>
+        <ul>
+            <li><a href="../../support/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../de/support/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../fr/support/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../es/support/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../it/support/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../pt-br/support/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+            <li><a href="../../nl/support/" hreflang="nl" lang="nl">Nederlands</a></li>
+            <li><a href="./" hreflang="pl" lang="pl" aria-current="page">Polski</a></li>
+            <li><a href="../../ru/support/" hreflang="ru" lang="ru">Русский</a></li>
+        </ul>
+    </details>
+</header>
+<main class="wrap">
+<section class="card">
+<h1>Goalpot — pomoc</h1>
+<div class="signal" aria-hidden="true"><span></span></div>
+<p class="lead">Każdy cel i każdy dług z miesiącem, w którym będziesz u celu.</p>
+<p><strong>Potrzebujesz pomocy?</strong> Napisz na adres <a href="mailto:ssx51f@gmail.com">ssx51f@gmail.com</a>. Sergei Stasenko zwykle odpowiada w ciągu dwóch dni roboczych. Wskazówka: Ustawienia › Pomoc › Kontakt z pomocą w aplikacji dodaje do wiadomości wersję aplikacji, wersję iOS i model urządzenia.</p>
+<a class="button" href="mailto:ssx51f@gmail.com?subject=Goalpot%20%E2%80%94%20pomoc">Napisz do pomocy</a>
+</section>
+<section>
+<h2>Najczęściej zadawane pytania</h2>
+<div class="card faq">
+<h3>Jak dodać cel lub dług?</h3>
+<p>Na karcie Plan stuknij <strong>Dodaj cel</strong> lub <strong>Dodaj dług</strong> (albo <strong>+</strong>). Cel potrzebuje nazwy, kwoty celu i tego, ile już udało się odłożyć; dodaj wpłatę — co tydzień, co dwa tygodnie, co miesiąc lub w dzień wypłaty — i, jeśli chcesz, datę celu. Dług potrzebuje salda, oprocentowania, raty minimalnej i dnia płatności. Zapisz, a wiersz pokaże miesiąc, w którym będziesz u celu; dwie daty nad listą, <strong>Bez długów</strong> i <strong>Cele osiągnięte</strong>, przesuną się razem z nim.</p>
+</div>
+<div class="card faq">
+<h3>Co jest bezpłatne, a co się nie liczy?</h3>
+<p>Bezpłatnie, na zawsze: do trzech aktywnych celów i trzech aktywnych długów, liczonych osobno, ze wszystkimi strategiami, Porównaniem, pokrętłem <strong>Dopłata / mies.</strong>, kwotami jednorazowymi, historią z cofaniem, Nadrabianiem, okresami 0 %, wykresem i pełnym harmonogramem, eksportem do CSV, obrazem do udostępnienia, widżetami, przypomnieniami i kopiami zapasowymi. Osiągnięte cele i spłacone długi się nie liczą, a karta Plan pokazuje, ile już wykorzystano, zanim dodasz kolejny wiersz („Bezpłatnie: 2 z 3 celów · 3 z 3 długów”).</p>
+<p>Jednorazowy zakup <strong>Odblokuj wszystko</strong> dodaje nieograniczoną liczbę celów i długów, kilka planów — na przykład osobisty i domowy, w sekcji Ustawienia › Plan › Plany — oraz przyszłe funkcje bez dodatkowych opłat. Nic, co wpiszesz lub wyeksportujesz, nigdy nie zostanie zablokowane. Nie ma subskrypcji, okresu próbnego ani reklam; App Store pokazuje cenę w twojej walucie przed zakupem.</p>
+</div>
+<div class="card faq">
+<h3>Jak liczone są daty i odsetki?</h3>
+<p>Miesiąc po miesiącu. Raz w miesiącu do każdego salda doliczane są odsetki według jego oprocentowania rocznego podzielonego przez dwanaście; spłata najpierw pokrywa odsetki z danego miesiąca, a potem saldo. Pieniądze na długi to suma ich rat minimalnych plus <strong>Dopłata / mies.</strong> i trafiają do długów w wybranej przez ciebie kolejności; gdy dług zostanie spłacony, jego rata przechodzi na kolejny. Cele dostają swoją wpłatę, dopóki nie zostanie osiągnięta kwota celu.</p>
+<p>Każda prognoza zakłada, że twoje oprocentowanie i raty minimalne pozostaną takie jak dziś, a Goalpot pokazuje obok tę podstawę („w porównaniu z ratami minimalnymi, przy obecnym oprocentowaniu”). Kredytodawcy zwykle liczą odsetki dzień po dniu, więc ich wyliczenia mogą się nieco różnić. Jeśli spłata nie pokrywa odsetek, wiersz zamiast daty informuje, że przy takiej spłacie dług nigdy nie zostanie spłacony.</p>
+<p>Obliczenia są szacunkami do celów planowania i nie stanowią porady finansowej. Rzeczywiste odsetki i terminy zależą od warunków twojego kredytodawcy.</p>
+</div>
+<div class="card faq">
+<h3>Dlaczego Goalpot porównuje strategie, zamiast wybrać jedną?</h3>
+<p>Bo kolejność to twoja decyzja. Porównanie stawia kulę śnieżną (najpierw najmniejsze saldo), lawinę (najpierw najwyższe oprocentowanie) i twoją własną kolejność obok siebie w dwóch równych kolumnach: miesiąc bez długów, odsetki, pierwszy spłacony dług i kolejność. Wiersz pod nimi podaje różnicę i nic więcej. <strong>Co to znaczy?</strong> wyjaśnia te kolejności. Tak samo jest z celami i długami: Porównanie pokazuje, co zmienia się po obu stronach, gdy część spłaty przesuniesz z długu na cel, i zostawia wybór tobie.</p>
+</div>
+<div class="card faq">
+<h3>Dlaczego Goalpot nie łączy się z moim bankiem?</h3>
+<p>Bo twój plan powinien pozostać twój. Goalpot nigdy nie prosi o logowanie do banku, nie ma konta i nigdzie niczego nie wysyła. Saldo, oprocentowanie i ratę minimalną przepisujesz z wyciągu, a spłaty i wpłaty odnotowujesz na bieżąco. <strong>Popraw saldo</strong> wyrównuje wiersz z tym, co pokazuje twój kredytodawca lub konto oszczędnościowe: różnica zapisuje się jako korekta, więc historia zostaje. Goalpot nie przelewa pieniędzy i nigdy nie kontaktuje się z twoimi kredytodawcami.</p>
+</div>
+<div class="card faq">
+<h3>Jak działają okresy 0 % i raty minimalne w procentach?</h3>
+<p>Dla karty z ofertą bez odsetek dodaj do długu okres 0 %: datę jego końca i oprocentowanie po nim. Do tej daty odsetki nie są doliczane; potem obowiązuje wpisane oprocentowanie, a Goalpot może ci o tym przypomnieć 14 i 3 dni przed końcem okresu. Rata minimalna może być stałą kwotą albo procentem salda z dolnym progiem — liczy się wyższa z tych wartości. W prognozach każda rata minimalna zostaje na dzisiejszym poziomie, więc pieniądze zaplanowane na długi nie maleją wraz ze spadkiem sald.</p>
+</div>
+<div class="card faq">
+<h3>Jak odnotować spłatę lub kwotę jednorazową?</h3>
+<p>Otwórz cel lub dług i stuknij <strong>Odnotuj</strong>. Wybierz ratę minimalną, kwotę z planu lub własną, datę i rodzaj — Regularna, Dopłata w tym miesiącu albo Jednorazowo — a arkusz pokaże, jak zmieni się data, zanim zapiszesz. Każdy wpis można zmienić lub usunąć w Historii, z przyciskiem <strong>Cofnij</strong>. Kwotę jednorazową na późniejszy miesiąc, na przykład premię lub zwrot podatku, dodajesz w sekcji Historia › <strong>Zaplanuj kwotę jednorazową</strong>; <strong>Pomiń ten miesiąc</strong> pokazuje, ile kosztuje miesiąc przerwy. <strong>Nadrabianie</strong> aktualizuje plan do dzisiaj po dłuższej przerwie, bez wpisywania każdej spłaty.</p>
+</div>
+<div class="card faq">
+<h3>Gdzie są moje kopie zapasowe i jak przywrócić jedną z nich?</h3>
+<p>W sekcji Ustawienia › Dane › <strong>Kopie zapasowe</strong>. Goalpot tworzy kopię na twoim iPhonie raz dziennie, jeśli coś zmienisz, a także przed przywróceniem i przed Usuń wszystkie dane; przechowywanych jest dziesięć ostatnich wersji automatycznych. <strong>Utwórz kopię</strong> tworzy twoją własną wersję, która nigdy nie jest usuwana automatycznie, a <strong>Udostępnij</strong> zapisuje wersję jako plik. Aby przywrócić, wybierz wersję lub <strong>Przywróć z pliku…</strong>: najpierw zobaczysz zawartość kopii, a <strong>Scal z moimi danymi</strong> ją doda. Przywracanie zawsze scala: nic nie jest usuwane ani nadpisywane, a z bieżących danych najpierw powstaje kopia.</p>
+</div>
+<div class="card faq">
+<h3>Dlaczego nie dotarło przypomnienie?</h3>
+<p>Przypomnienia to lokalne powiadomienia z twojego iPhone'a: w dniu płatności każdego długu (<strong>Dzień płatności</strong>), 14 i 3 dni przed końcem okresu 0 % oraz w dzień wypłaty z informacją, ile dostają twoje cele. Włącz je w sekcji Ustawienia › Przypomnienia i sprawdź, czy powiadomienia aplikacji Goalpot są dozwolone w Ustawienia › Powiadomienia na iPhonie (gdy są wyłączone, Ustawienia › Przypomnienia pokazują <strong>Otwórz Ustawienia</strong>) oraz czy nie wycisza ich Skupienie. Przypomnienie w dzień wypłaty wymaga ustawienia dnia wypłaty w sekcji Ustawienia › Plan. Goalpot planuje przypomnienia na podstawie wpisanych dat przy każdym otwarciu i nie działa w tle, więc otwieraj aplikację od czasu do czasu, aby kolejne były zaplanowane.</p>
+</div>
+<div class="card faq">
+<h3>Co pokazują widżety?</h3>
+<p>Na ekranie początkowym mały widżet pokazuje miesiąc bez długów z paskiem i jednym stuknięciem otwiera Odnotuj, a średni widżet pokazuje dwie najbliższe daty. Na ekranie blokady wskaźnik pokazuje postęp jednego wiersza (wybierz go w sekcji Ustawienia › Widżet), a wiersz tekstu — miesiąc bez długów i to, ile zostało.</p>
+</div>
+<div class="card faq">
+<h3>Jak przywrócić zakup na nowym iPhonie?</h3>
+<p>Zaloguj się na Konto Apple, na którym kupiono <strong>Odblokuj wszystko</strong>, a potem stuknij <strong>Przywróć zakupy</strong> w sekcji Ustawienia › Zakup lub na ekranie odblokowania. Zakup należy do tego Konta Apple i działa na każdym iPhonie, którego z nim używasz; nie jest udostępniany przez Chmurę rodzinną.</p>
+</div>
+<div class="card faq">
+<h3>Jak wyeksportować lub usunąć dane?</h3>
+<p>Ustawienia › Dane › Eksport oferuje <strong>Eksportuj plan do CSV</strong> (każdy cel i dług z datą) i <strong>Eksportuj wpisy do CSV</strong> (każdy wpis) dla arkusza kalkulacyjnego oraz <strong>Udostępnij obraz „Bez długów od…”</strong>. <strong>Usuń wszystkie dane</strong> usuwa wszystkie cele, długi i wpisy po wykonaniu ostatniej kopii; zakup, ustawienia i kopie zapasowe zostają, dopóki ich nie usuniesz. Usunięcie aplikacji usuwa z iPhone'a wszystkie jej dane. Nie mamy żadnej kopii, bo nic nigdy nie jest do nas wysyłane.</p>
+</div>
+<div class="card faq">
+<h3>Jakie urządzenia i języki są obsługiwane?</h3>
+<p>Goalpot działa na iPhonie z iOS 18 lub nowszym, w językach angielskim, niemieckim, francuskim, hiszpańskim, włoskim, portugalskim (Brazylia), niderlandzkim, polskim i rosyjskim. Kwoty i daty są zgodne z regionem ustawionym na iPhonie. Aplikacja działa w pełni offline.</p>
+</div>
+</section>
+</main>
+<footer class="wrap">
+    <nav><a href="./">Pomoc</a> <a href="../privacy/">Polityka prywatności</a> <a href="../terms/">Warunki korzystania</a></nav>
+    <p>&copy; 2026 Sergei Stasenko. Wszelkie prawa zastrzeżone.</p>
+</footer>
+</body>
+</html>

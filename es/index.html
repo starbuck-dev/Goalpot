@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Goalpot · Metas de ahorro y deudas en un solo plan</title>
+    <meta name="description" content="Goalpot es una app para iPhone que reúne tus metas de ahorro y tus deudas en un solo plan, cada una con el mes en que llegas. Soporte, política de privacidad y condiciones de uso.">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://starbuck-dev.github.io/Goalpot/es/">
+    <link rel="alternate" hreflang="en" href="https://starbuck-dev.github.io/Goalpot/">
+    <link rel="alternate" hreflang="de" href="https://starbuck-dev.github.io/Goalpot/de/">
+    <link rel="alternate" hreflang="fr" href="https://starbuck-dev.github.io/Goalpot/fr/">
+    <link rel="alternate" hreflang="es" href="https://starbuck-dev.github.io/Goalpot/es/">
+    <link rel="alternate" hreflang="it" href="https://starbuck-dev.github.io/Goalpot/it/">
+    <link rel="alternate" hreflang="pt-BR" href="https://starbuck-dev.github.io/Goalpot/pt-br/">
+    <link rel="alternate" hreflang="nl" href="https://starbuck-dev.github.io/Goalpot/nl/">
+    <link rel="alternate" hreflang="pl" href="https://starbuck-dev.github.io/Goalpot/pl/">
+    <link rel="alternate" hreflang="ru" href="https://starbuck-dev.github.io/Goalpot/ru/">
+    <link rel="alternate" hreflang="x-default" href="https://starbuck-dev.github.io/Goalpot/">
+    <style>
+:root {
+    color-scheme: light dark;
+    --bg: #FFFDF4; --card: #FFFFFF; --ink: #111111; --mute: #5C5A52; --line: #E6E2D2; --yellow: #F5C400;
+    --on-yellow: #111111; --shadow: rgba(17, 17, 17, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212; --card: #1C1C1A; --ink: #F4F2EA; --mute: #A8A69C; --line: #2E2E2B; --yellow: #FFD21F;
+        --on-yellow: #111111; --shadow: rgba(0, 0, 0, 0.5);
+    }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--yellow); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 16px 8px; }
+.brand, h1, h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+    font-weight: 900; font-stretch: condensed; text-transform: uppercase; letter-spacing: 0.01em;
+}
+.brand { color: var(--ink); font-size: 24px; line-height: 1; text-decoration: none; }
+.lang { position: relative; font-size: 15px; }
+.lang summary {
+    list-style: none; cursor: pointer; padding: 6px 14px; border-radius: 8px; white-space: nowrap;
+    background: var(--card); color: var(--ink); border: 1.5px solid var(--ink);
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: " \25BE"; color: var(--mute); }
+.lang ul {
+    position: absolute; right: 0; z-index: 2; margin: 8px 0 0; padding: 6px; list-style: none; min-width: 200px;
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    box-shadow: 0 12px 32px var(--shadow);
+}
+.lang li a { display: block; padding: 7px 12px; border-radius: 6px; color: var(--ink); text-decoration: none; }
+.lang li a:hover, .lang li a:focus-visible { background: var(--line); }
+.lang li a[aria-current="page"] { font-weight: 700; box-shadow: inset 4px 0 0 var(--yellow); }
+.card {
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 24px; margin: 16px 0;
+}
+h1 { font-size: 34px; line-height: 1.05; margin: 0 0 12px; }
+h2 { font-size: 21px; line-height: 1.15; margin: 32px 0 8px; }
+h3 { font-size: 17px; line-height: 1.35; margin: 0 0 6px; }
+.signal {
+    height: 12px; border: 1.5px solid var(--ink); border-radius: 3px; background: var(--card);
+    margin: 0 0 16px; overflow: hidden;
+}
+.signal span { display: block; width: 62%; height: 100%; background: var(--yellow); border-right: 1.5px solid var(--ink); }
+p, li { color: var(--mute); }
+strong { color: var(--ink); }
+.date { font-size: 14px; color: var(--mute); margin: 0 0 20px; font-variant-numeric: tabular-nums; }
+.summary { border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); padding: 4px 0; margin: 16px 0; }
+.lead { font-size: 18px; color: var(--mute); }
+.button {
+    display: inline-block; background: var(--yellow); color: var(--on-yellow); font-weight: 700;
+    padding: 12px 28px; border-radius: 8px; border: 1.5px solid var(--on-yellow); text-decoration: none;
+    margin-top: 8px;
+}
+.store { margin: 16px 0 0; }
+.links { display: grid; gap: 12px; margin: 16px 0; }
+.links a {
+    display: block; background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 16px 20px; text-decoration: none;
+}
+.links strong { display: block; color: var(--ink); }
+.links span { color: var(--mute); font-size: 15px; }
+.faq h3 { color: var(--ink); }
+.faq p:last-child { margin-bottom: 0; }
+mark.todo { background: var(--yellow); color: var(--on-yellow); padding: 0 4px; border-radius: 4px; }
+footer { padding: 16px 16px 40px; font-size: 14px; color: var(--mute); }
+footer p { color: var(--mute); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+<header class="wrap top">
+    <a class="brand" href="./">Goalpot</a>
+    <details class="lang">
+        <summary aria-label="Idioma">Español</summary>
+        <ul>
+            <li><a href="../" hreflang="en" lang="en">English</a></li>
+            <li><a href="../de/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../fr/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="./" hreflang="es" lang="es" aria-current="page">Español</a></li>
+            <li><a href="../it/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../pt-br/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+            <li><a href="../nl/" hreflang="nl" lang="nl">Nederlands</a></li>
+            <li><a href="../pl/" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="../ru/" hreflang="ru" lang="ru">Русский</a></li>
+        </ul>
+    </details>
+</header>
+<main class="wrap">
+<section class="card">
+<h1>Cada meta y cada deuda, con el mes en que llegas.</h1>
+<div class="signal" aria-hidden="true"><span></span></div>
+<p>Goalpot reúne tus metas de ahorro y tus deudas en una sola lista. Cada fila muestra el mes en que llegas — «Viaje a Japón · alcanzada en oct 2027», «Visa · saldada en dic 2027» — y, encima de la lista, dos fechas lo resumen todo: cuándo estarás sin deudas y cuándo tendrás tus metas alcanzadas. Un solo control, <strong>Extra al mes</strong>, y los importes puntuales mueven todas las fechas y muestran los intereses que ahorras. Bola de nieve, avalancha y tu propio orden aparecen uno al lado del otro en <strong>Comparar</strong>; tú eliges. Los números los escribes tú: Goalpot no se conecta a tu banco y no tiene cuenta, ni servidor, ni anuncios. Tu plan se queda en tu iPhone.</p>
+<p class="store"><a class="button" href="https://apps.apple.com/app/id6834423374">Goalpot en el App Store</a></p>
+</section>
+<nav class="links">
+    <a href="support/"><strong>Soporte</strong><span>Preguntas, respuestas y cómo contactarnos</span></a>
+    <a href="privacy/"><strong>Política de privacidad</strong><span>Goalpot no recopila ningún dato</span></a>
+    <a href="terms/"><strong>Condiciones de uso</strong><span>La licencia estándar de Apple, la compra única y cómo se estiman las fechas</span></a>
+</nav>
+</main>
+<footer class="wrap">
+    <nav><a href="support/">Soporte</a> <a href="privacy/">Política de privacidad</a> <a href="terms/">Condiciones de uso</a></nav>
+    <p>&copy; 2026 Sergei Stasenko. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>

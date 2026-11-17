@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ondersteuning voor Goalpot · Goalpot</title>
+    <meta name="description" content="Antwoorden over spaardoelen en schulden, de gratis versie en de aankoop, hoe datums en rente worden berekend, periodes met 0 % rente, vastleggen, back-ups, herinneringen, exporteren en gegevens verwijderen.">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://starbuck-dev.github.io/Goalpot/nl/support/">
+    <link rel="alternate" hreflang="en" href="https://starbuck-dev.github.io/Goalpot/support/">
+    <link rel="alternate" hreflang="de" href="https://starbuck-dev.github.io/Goalpot/de/support/">
+    <link rel="alternate" hreflang="fr" href="https://starbuck-dev.github.io/Goalpot/fr/support/">
+    <link rel="alternate" hreflang="es" href="https://starbuck-dev.github.io/Goalpot/es/support/">
+    <link rel="alternate" hreflang="it" href="https://starbuck-dev.github.io/Goalpot/it/support/">
+    <link rel="alternate" hreflang="pt-BR" href="https://starbuck-dev.github.io/Goalpot/pt-br/support/">
+    <link rel="alternate" hreflang="nl" href="https://starbuck-dev.github.io/Goalpot/nl/support/">
+    <link rel="alternate" hreflang="pl" href="https://starbuck-dev.github.io/Goalpot/pl/support/">
+    <link rel="alternate" hreflang="ru" href="https://starbuck-dev.github.io/Goalpot/ru/support/">
+    <link rel="alternate" hreflang="x-default" href="https://starbuck-dev.github.io/Goalpot/support/">
+    <style>
+:root {
+    color-scheme: light dark;
+    --bg: #FFFDF4; --card: #FFFFFF; --ink: #111111; --mute: #5C5A52; --line: #E6E2D2; --yellow: #F5C400;
+    --on-yellow: #111111; --shadow: rgba(17, 17, 17, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212; --card: #1C1C1A; --ink: #F4F2EA; --mute: #A8A69C; --line: #2E2E2B; --yellow: #FFD21F;
+        --on-yellow: #111111; --shadow: rgba(0, 0, 0, 0.5);
+    }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--yellow); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 16px 8px; }
+.brand, h1, h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+    font-weight: 900; font-stretch: condensed; text-transform: uppercase; letter-spacing: 0.01em;
+}
+.brand { color: var(--ink); font-size: 24px; line-height: 1; text-decoration: none; }
+.lang { position: relative; font-size: 15px; }
+.lang summary {
+    list-style: none; cursor: pointer; padding: 6px 14px; border-radius: 8px; white-space: nowrap;
+    background: var(--card); color: var(--ink); border: 1.5px solid var(--ink);
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: " \25BE"; color: var(--mute); }
+.lang ul {
+    position: absolute; right: 0; z-index: 2; margin: 8px 0 0; padding: 6px; list-style: none; min-width: 200px;
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    box-shadow: 0 12px 32px var(--shadow);
+}
+.lang li a { display: block; padding: 7px 12px; border-radius: 6px; color: var(--ink); text-decoration: none; }
+.lang li a:hover, .lang li a:focus-visible { background: var(--line); }
+.lang li a[aria-current="page"] { font-weight: 700; box-shadow: inset 4px 0 0 var(--yellow); }
+.card {
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 24px; margin: 16px 0;
+}
+h1 { font-size: 34px; line-height: 1.05; margin: 0 0 12px; }
+h2 { font-size: 21px; line-height: 1.15; margin: 32px 0 8px; }
+h3 { font-size: 17px; line-height: 1.35; margin: 0 0 6px; }
+.signal {
+    height: 12px; border: 1.5px solid var(--ink); border-radius: 3px; background: var(--card);
+    margin: 0 0 16px; overflow: hidden;
+}
+.signal span { display: block; width: 62%; height: 100%; background: var(--yellow); border-right: 1.5px solid var(--ink); }
+p, li { color: var(--mute); }
+strong { color: var(--ink); }
+.date { font-size: 14px; color: var(--mute); margin: 0 0 20px; font-variant-numeric: tabular-nums; }
+.summary { border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); padding: 4px 0; margin: 16px 0; }
+.lead { font-size: 18px; color: var(--mute); }
+.button {
+    display: inline-block; background: var(--yellow); color: var(--on-yellow); font-weight: 700;
+    padding: 12px 28px; border-radius: 8px; border: 1.5px solid var(--on-yellow); text-decoration: none;
+    margin-top: 8px;
+}
+.store { margin: 16px 0 0; }
+.links { display: grid; gap: 12px; margin: 16px 0; }
+.links a {
+    display: block; background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 16px 20px; text-decoration: none;
+}
+.links strong { display: block; color: var(--ink); }
+.links span { color: var(--mute); font-size: 15px; }
+.faq h3 { color: var(--ink); }
+.faq p:last-child { margin-bottom: 0; }
+mark.todo { background: var(--yellow); color: var(--on-yellow); padding: 0 4px; border-radius: 4px; }
+footer { padding: 16px 16px 40px; font-size: 14px; color: var(--mute); }
+footer p { color: var(--mute); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+<header class="wrap top">
+    <a class="brand" href="../">Goalpot</a>
+    <details class="lang">
+        <summary aria-label="Taal">Nederlands</summary>
+        <ul>
+            <li><a href="../../support/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../de/support/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="../../fr/support/" hreflang="fr" lang="fr">Français</a></li>
+            <li><a href="../../es/support/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../it/support/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../pt-br/support/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+            <li><a href="./" hreflang="nl" lang="nl" aria-current="page">Nederlands</a></li>
+            <li><a href="../../pl/support/" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="../../ru/support/" hreflang="ru" lang="ru">Русский</a></li>
+        </ul>
+    </details>
+</header>
+<main class="wrap">
+<section class="card">
+<h1>Ondersteuning voor Goalpot</h1>
+<div class="signal" aria-hidden="true"><span></span></div>
+<p class="lead">Elk spaardoel en elke schuld, met de maand waarin je er bent.</p>
+<p><strong>Hulp nodig?</strong> Schrijf naar <a href="mailto:ssx51f@gmail.com">ssx51f@gmail.com</a>. Sergei Stasenko antwoordt meestal binnen twee werkdagen. Tip: via Instellingen › Ondersteuning › Neem contact op in de app worden je appversie, iOS-versie en apparaat aan de e-mail toegevoegd.</p>
+<a class="button" href="mailto:ssx51f@gmail.com?subject=Ondersteuning%20voor%20Goalpot">E-mail ondersteuning</a>
+</section>
+<section>
+<h2>Veelgestelde vragen</h2>
+<div class="card faq">
+<h3>Hoe voeg ik een spaardoel of een schuld toe?</h3>
+<p>Tik op het tabblad Plan op <strong>Voeg spaardoel toe</strong> of <strong>Voeg schuld toe</strong> (of op <strong>+</strong>). Een spaardoel heeft een naam nodig, het doelbedrag en wat je al hebt gespaard; voeg een inleg toe — per week, per twee weken, per maand of op salarisdag — en, als je wilt, een streefdatum. Een schuld heeft de restschuld, de jaarrente, de minimumbetaling en de vervaldag nodig. Bewaar, en de rij toont de maand waarin je er bent; de twee datums boven de lijst, <strong>Schuldenvrij</strong> en <strong>Doelen bereikt</strong>, schuiven mee.</p>
+</div>
+<div class="card faq">
+<h3>Wat is gratis, en wat telt niet mee?</h3>
+<p>Gratis, voor altijd: tot drie actieve spaardoelen en drie actieve schulden, apart geteld, met elke strategie, Vergelijken, de knop <strong>Extra / maand</strong>, eenmalige bedragen, de geschiedenis met ongedaan maken, Inhalen, periodes met 0 % rente, de grafiek en het volledige schema, CSV-export, de deelafbeelding, widgets, herinneringen en back-ups. Bereikte doelen en afgeloste schulden tellen niet mee, en het tabblad Plan laat zien hoeveel je er al gebruikt voordat je er een toevoegt (‘Gratis: 2 van 3 spaardoelen · 3 van 3 schulden’).</p>
+<p>De eenmalige aankoop <strong>Alles ontgrendelen</strong> voegt onbeperkt spaardoelen en schulden toe, meerdere plannen — bijvoorbeeld persoonlijk en voor het huishouden, in Instellingen › Plan › Plannen — en toekomstige functies zonder extra kosten. Niets wat je hebt ingevoerd of geëxporteerd wordt ooit vergrendeld. Er is geen abonnement en geen proefperiode, en er zijn geen advertenties; de App Store toont de prijs in je valuta voordat je koopt.</p>
+</div>
+<div class="card faq">
+<h3>Hoe worden de datums en de rente berekend?</h3>
+<p>Maand voor maand. Eén keer per maand wordt bij elke restschuld rente opgeteld tegen de jaarrente gedeeld door twaalf; een betaling dekt eerst de rente van die maand en daarna de restschuld. Het geld voor je schulden is de som van hun minimumbetalingen plus <strong>Extra / maand</strong>, en het gaat naar de schulden in de volgorde die je hebt gekozen; is een schuld afgelost, dan schuift de betaling ervan door naar de volgende. Spaardoelen krijgen hun inleg tot het doelbedrag is bereikt.</p>
+<p>Elke prognose gaat ervan uit dat je rentes en minimumbetalingen blijven zoals ze nu zijn, en Goalpot toont die basis ernaast (‘t.o.v. minimumbetalingen, bij de huidige rente’). Kredietverstrekkers berekenen rente meestal per dag, dus hun bedragen kunnen iets afwijken. Dekt een betaling de rente niet, dan meldt de rij dat de schuld met deze betaling nooit wordt afgelost, in plaats van een datum te tonen.</p>
+<p>Berekeningen zijn schattingen voor planning en geen financieel advies. De werkelijke rente en data hangen af van de voorwaarden van je kredietverstrekker.</p>
+</div>
+<div class="card faq">
+<h3>Waarom vergelijkt Goalpot strategieën in plaats van er een te kiezen?</h3>
+<p>Omdat de volgorde jouw beslissing is. Vergelijken zet sneeuwbal (kleinste restschuld eerst), lawine (hoogste jaarrente eerst) en je eigen volgorde naast elkaar in twee gelijke kolommen: de maand waarin je schuldenvrij bent, de rente, de eerst afgeloste schuld en de volgorde. De regel eronder noemt het verschil en verder niets. <strong>Wat betekent dit?</strong> legt de volgordes uit. Hetzelfde geldt voor doelen en schulden: Vergelijken laat zien wat er aan beide kanten verandert als je een deel van een betaling van een schuld naar een doel verschuift, en laat de keuze aan jou.</p>
+</div>
+<div class="card faq">
+<h3>Waarom maakt Goalpot geen verbinding met mijn bank?</h3>
+<p>Omdat je plan van jou moet blijven. Goalpot vraagt nooit om je inloggegevens van de bank, heeft geen account en verstuurt nergens iets naartoe. Je neemt de restschuld, de rente en het minimum over van je afschrift en legt betalingen en inleg vast wanneer je ze doet. <strong>Pas restschuld aan</strong> brengt een rij in lijn met wat je kredietverstrekker of je spaarrekening toont: het verschil wordt als correctie vastgelegd, zodat de geschiedenis blijft staan. Goalpot verplaatst geen geld en neemt nooit contact op met je kredietverstrekkers.</p>
+</div>
+<div class="card faq">
+<h3>Hoe werken periodes met 0 % rente en minimumbetalingen als percentage?</h3>
+<p>Heb je een creditcard met een renteloze aanbieding, voeg dan een periode met 0 % rente toe aan de schuld: de datum waarop die afloopt en de rente daarna. Tot die datum wordt er geen rente opgeteld; daarna geldt de rente die je hebt ingevoerd, en Goalpot kan je 14 en 3 dagen voor het einde van de periode een herinnering sturen. Een minimumbetaling kan een vast bedrag zijn of een deel van de restschuld met een ondergrens, waarbij het hoogste van de twee geldt. In de prognoses blijft elk minimum op het bedrag van vandaag, zodat het geld dat je voor je schulden hebt gepland niet krimpt als de restschulden dalen.</p>
+</div>
+<div class="card faq">
+<h3>Hoe leg ik een betaling of een eenmalig bedrag vast?</h3>
+<p>Open een spaardoel of een schuld en tik op <strong>Vastleggen</strong>. Kies het minimum, het bedrag van het plan of een eigen bedrag, de datum en het soort — Normaal, Extra deze maand of Eenmalig — en het venster laat zien wat het met de datum doet voordat je bewaart. Elke boeking kun je wijzigen of verwijderen in Geschiedenis, met <strong>Maak ongedaan</strong>. Een eenmalig bedrag voor een latere maand, zoals een bonus of een belastingteruggave, zet je in Geschiedenis › <strong>Plan een eenmalig bedrag</strong>; <strong>Sla deze maand over</strong> laat zien wat een gepauzeerde maand kost. <strong>Inhalen</strong> brengt het plan na een tijdje weg weer bij tot vandaag, zonder elke betaling in te voeren.</p>
+</div>
+<div class="card faq">
+<h3>Waar staan mijn back-ups en hoe zet ik er een terug?</h3>
+<p>In Instellingen › Gegevens › <strong>Back-ups</strong>. Goalpot maakt één keer per dag een back-up op je iPhone nadat je iets hebt gewijzigd, en vóór een herstel of Verwijder alle gegevens; de laatste tien automatische versies worden bewaard. <strong>Maak nu back-up</strong> maakt een eigen versie, die nooit automatisch wordt verwijderd, en <strong>Deel</strong> bewaart een versie als bestand. Om te herstellen kies je een versie of <strong>Herstel uit bestand…</strong>: je ziet eerst wat er in de back-up staat, en <strong>Voeg samen met mijn gegevens</strong> voegt het toe. Herstellen voegt altijd samen: niets wordt verwijderd of overschreven, en van je huidige gegevens wordt eerst een back-up gemaakt.</p>
+</div>
+<div class="card faq">
+<h3>Waarom kwam een herinnering niet aan?</h3>
+<p>Herinneringen zijn lokale meldingen van je iPhone: op de vervaldag van elke schuld (<strong>Betaaldag</strong>), 14 en 3 dagen voordat een periode met 0 % rente eindigt, en op salarisdag met wat je doelen krijgen. Zet ze aan in Instellingen › Herinneringen en controleer of meldingen voor Goalpot zijn toegestaan in Instellingen › Berichtgeving van de iPhone (Instellingen › Herinneringen toont <strong>Open Instellingen</strong> als ze uit staan) en of een Focus ze niet dempt. De herinnering op salarisdag heeft een salarisdag nodig in Instellingen › Plan. Goalpot plant de herinneringen elke keer dat je de app opent vanuit de datums die je hebt ingevoerd en draait niet op de achtergrond, dus open de app af en toe, zodat de volgende gepland blijven.</p>
+</div>
+<div class="card faq">
+<h3>Wat tonen de widgets?</h3>
+<p>Op het beginscherm toont de kleine widget de maand waarin je schuldenvrij bent met de balk en opent Vastleggen met één tik, en de middelgrote widget toont de volgende twee datums. Op het toegangsscherm toont een meter hoe ver één rij is (kies die in Instellingen › Widget), en een regel toont de maand waarin je schuldenvrij bent en wat er nog over is.</p>
+</div>
+<div class="card faq">
+<h3>Hoe herstel ik mijn aankoop op een nieuwe iPhone?</h3>
+<p>Log in met het Apple Account waarmee <strong>Alles ontgrendelen</strong> is gekocht en tik op <strong>Herstel aankopen</strong> in Instellingen › Aankoop of op het ontgrendelscherm. De aankoop hoort bij dat Apple Account en werkt op elke iPhone die je ermee gebruikt; hij wordt niet gedeeld via Delen met gezin.</p>
+</div>
+<div class="card faq">
+<h3>Hoe exporteer of verwijder ik mijn gegevens?</h3>
+<p>Instellingen › Gegevens › Export biedt <strong>Exporteer plan als CSV</strong> (elk spaardoel en elke schuld met de datum) en <strong>Exporteer boekingen als CSV</strong> (elke boeking) voor een spreadsheetapp, en <strong>Deel afbeelding ‘Schuldenvrij in …’</strong>. <strong>Verwijder alle gegevens</strong> wist alle spaardoelen, schulden en boekingen na een laatste back-up; je aankoop, instellingen en back-ups blijven tot je ze verwijdert. Als je de app verwijdert, worden al zijn gegevens van je iPhone gewist. Wij hebben geen kopie, want er wordt nooit iets naar ons verstuurd.</p>
+</div>
+<div class="card faq">
+<h3>Welke apparaten en talen worden ondersteund?</h3>
+<p>Goalpot werkt op iPhone met iOS 18 of later, in het Engels, Duits, Frans, Spaans, Italiaans, Braziliaans-Portugees, Nederlands, Pools en Russisch. Bedragen en datums volgen de regio van je iPhone. De app werkt volledig offline.</p>
+</div>
+</section>
+</main>
+<footer class="wrap">
+    <nav><a href="./">Ondersteuning</a> <a href="../privacy/">Privacybeleid</a> <a href="../terms/">Gebruiksvoorwaarden</a></nav>
+    <p>&copy; 2026 Sergei Stasenko. Alle rechten voorbehouden.</p>
+</footer>
+</body>
+</html>

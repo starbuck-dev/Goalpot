@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Politique de confidentialité · Goalpot</title>
+    <meta name="description" content="Goalpot ne collecte aucune donnée : aucun identifiant bancaire, aucun compte, aucun serveur, aucune analyse, aucun pistage. Vos objectifs, dettes et saisies restent sur votre iPhone, et les rappels sont des notifications locales.">
+    <meta name="color-scheme" content="light dark">
+    <link rel="canonical" href="https://starbuck-dev.github.io/Goalpot/fr/privacy/">
+    <link rel="alternate" hreflang="en" href="https://starbuck-dev.github.io/Goalpot/privacy/">
+    <link rel="alternate" hreflang="de" href="https://starbuck-dev.github.io/Goalpot/de/privacy/">
+    <link rel="alternate" hreflang="fr" href="https://starbuck-dev.github.io/Goalpot/fr/privacy/">
+    <link rel="alternate" hreflang="es" href="https://starbuck-dev.github.io/Goalpot/es/privacy/">
+    <link rel="alternate" hreflang="it" href="https://starbuck-dev.github.io/Goalpot/it/privacy/">
+    <link rel="alternate" hreflang="pt-BR" href="https://starbuck-dev.github.io/Goalpot/pt-br/privacy/">
+    <link rel="alternate" hreflang="nl" href="https://starbuck-dev.github.io/Goalpot/nl/privacy/">
+    <link rel="alternate" hreflang="pl" href="https://starbuck-dev.github.io/Goalpot/pl/privacy/">
+    <link rel="alternate" hreflang="ru" href="https://starbuck-dev.github.io/Goalpot/ru/privacy/">
+    <link rel="alternate" hreflang="x-default" href="https://starbuck-dev.github.io/Goalpot/privacy/">
+    <style>
+:root {
+    color-scheme: light dark;
+    --bg: #FFFDF4; --card: #FFFFFF; --ink: #111111; --mute: #5C5A52; --line: #E6E2D2; --yellow: #F5C400;
+    --on-yellow: #111111; --shadow: rgba(17, 17, 17, 0.12);
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg: #121212; --card: #1C1C1A; --ink: #F4F2EA; --mute: #A8A69C; --line: #2E2E2B; --yellow: #FFD21F;
+        --on-yellow: #111111; --shadow: rgba(0, 0, 0, 0.5);
+    }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    margin: 0; background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+a { color: var(--ink); text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--yellow); }
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 16px; }
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 20px 16px 8px; }
+.brand, h1, h2 {
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Helvetica Neue", system-ui, sans-serif;
+    font-weight: 900; font-stretch: condensed; text-transform: uppercase; letter-spacing: 0.01em;
+}
+.brand { color: var(--ink); font-size: 24px; line-height: 1; text-decoration: none; }
+.lang { position: relative; font-size: 15px; }
+.lang summary {
+    list-style: none; cursor: pointer; padding: 6px 14px; border-radius: 8px; white-space: nowrap;
+    background: var(--card); color: var(--ink); border: 1.5px solid var(--ink);
+}
+.lang summary::-webkit-details-marker { display: none; }
+.lang summary::after { content: " \25BE"; color: var(--mute); }
+.lang ul {
+    position: absolute; right: 0; z-index: 2; margin: 8px 0 0; padding: 6px; list-style: none; min-width: 200px;
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    box-shadow: 0 12px 32px var(--shadow);
+}
+.lang li a { display: block; padding: 7px 12px; border-radius: 6px; color: var(--ink); text-decoration: none; }
+.lang li a:hover, .lang li a:focus-visible { background: var(--line); }
+.lang li a[aria-current="page"] { font-weight: 700; box-shadow: inset 4px 0 0 var(--yellow); }
+.card {
+    background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 24px; margin: 16px 0;
+}
+h1 { font-size: 34px; line-height: 1.05; margin: 0 0 12px; }
+h2 { font-size: 21px; line-height: 1.15; margin: 32px 0 8px; }
+h3 { font-size: 17px; line-height: 1.35; margin: 0 0 6px; }
+.signal {
+    height: 12px; border: 1.5px solid var(--ink); border-radius: 3px; background: var(--card);
+    margin: 0 0 16px; overflow: hidden;
+}
+.signal span { display: block; width: 62%; height: 100%; background: var(--yellow); border-right: 1.5px solid var(--ink); }
+p, li { color: var(--mute); }
+strong { color: var(--ink); }
+.date { font-size: 14px; color: var(--mute); margin: 0 0 20px; font-variant-numeric: tabular-nums; }
+.summary { border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); padding: 4px 0; margin: 16px 0; }
+.lead { font-size: 18px; color: var(--mute); }
+.button {
+    display: inline-block; background: var(--yellow); color: var(--on-yellow); font-weight: 700;
+    padding: 12px 28px; border-radius: 8px; border: 1.5px solid var(--on-yellow); text-decoration: none;
+    margin-top: 8px;
+}
+.store { margin: 16px 0 0; }
+.links { display: grid; gap: 12px; margin: 16px 0; }
+.links a {
+    display: block; background: var(--card); border: 1.5px solid var(--ink); border-radius: 8px;
+    padding: 16px 20px; text-decoration: none;
+}
+.links strong { display: block; color: var(--ink); }
+.links span { color: var(--mute); font-size: 15px; }
+.faq h3 { color: var(--ink); }
+.faq p:last-child { margin-bottom: 0; }
+mark.todo { background: var(--yellow); color: var(--on-yellow); padding: 0 4px; border-radius: 4px; }
+footer { padding: 16px 16px 40px; font-size: 14px; color: var(--mute); }
+footer p { color: var(--mute); }
+footer nav { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+<header class="wrap top">
+    <a class="brand" href="../">Goalpot</a>
+    <details class="lang">
+        <summary aria-label="Langue">Français</summary>
+        <ul>
+            <li><a href="../../privacy/" hreflang="en" lang="en">English</a></li>
+            <li><a href="../../de/privacy/" hreflang="de" lang="de">Deutsch</a></li>
+            <li><a href="./" hreflang="fr" lang="fr" aria-current="page">Français</a></li>
+            <li><a href="../../es/privacy/" hreflang="es" lang="es">Español</a></li>
+            <li><a href="../../it/privacy/" hreflang="it" lang="it">Italiano</a></li>
+            <li><a href="../../pt-br/privacy/" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a></li>
+            <li><a href="../../nl/privacy/" hreflang="nl" lang="nl">Nederlands</a></li>
+            <li><a href="../../pl/privacy/" hreflang="pl" lang="pl">Polski</a></li>
+            <li><a href="../../ru/privacy/" hreflang="ru" lang="ru">Русский</a></li>
+        </ul>
+    </details>
+</header>
+<main class="wrap">
+<article class="card">
+<h1>Politique de confidentialité</h1>
+<div class="signal" aria-hidden="true"><span></span></div>
+<p class="date">Date d&#x27;entrée en vigueur : 15 novembre 2026</p>
+<div class="summary"><p><strong>Résumé :</strong> Goalpot ne collecte aucune donnée. Il n'y a aucune connexion bancaire, aucun compte, aucun serveur de notre part, aucune analyse d'usage, aucune publicité et aucun pistage. Vos objectifs, dettes et saisies restent sur votre iPhone, les rappels sont des notifications locales, et les fichiers que vous exportez ne vont que là où vous les envoyez.</p></div>
+<section>
+<h2>1. Qui sommes-nous</h2>
+<p>Goalpot est une app iPhone fournie par Sergei Stasenko (« nous »).</p>
+</section>
+<section>
+<h2>2. Données que nous ne collectons pas</h2>
+<p>Nous ne collectons, ne recevons ni ne stockons aucune donnée personnelle via l'app. Goalpot n'a ni connexion ni compte et ne se connecte jamais à votre banque ; nous n'exploitons aucun serveur pour l'app, et elle ne contient aucun SDK tiers d'analyse, de rapports de plantage, de publicité ou autre. L'app ne vous suit pas à travers les apps ou les sites web, n'utilise pas l'identifiant publicitaire et ne demande jamais l'autorisation de suivi.</p>
+</section>
+<section>
+<h2>3. Vos objectifs, dettes et saisies</h2>
+<p>Tout ce que vous saisissez (plans, objectifs, dettes avec leurs soldes, taux et paiements minimums, paiements, versements, montants ponctuels et notes) est stocké uniquement sur votre iPhone, dans le stockage propre de l'app. Quelques réglages, comme vos rappels, votre jour de paie et le plan affiché, sont conservés dans les préférences de l'app sur l'appareil. Nous ne pouvons ni voir, ni lire, ni récupérer aucune de ces données.</p>
+<p>Comme les autres données d'apps, votre plan est inclus dans les sauvegardes de votre iPhone si vous utilisez la sauvegarde iCloud ou sauvegardez sur votre ordinateur. Ces sauvegardes appartiennent à votre compte Apple ou à votre ordinateur, et nous n'y avons pas accès. Goalpot ne synchronise pas vos données entre appareils.</p>
+</section>
+<section>
+<h2>4. Rappels</h2>
+<p>Les rappels du jour d'échéance d'une dette, avant la fin d'une période à 0 % et le jour de paie sont des notifications locales planifiées sur votre iPhone à partir des dates que vous avez saisies ; rien ne transite par un serveur. L'app demande l'autorisation lorsque vous activez un rappel ou enregistrez une dette avec une période à 0 %, et vous pouvez désactiver les rappels dans Réglages › Rappels ou dans les Réglages de l'iPhone. Goalpot ne fonctionne pas en arrière-plan.</p>
+</section>
+<section>
+<h2>5. Widgets</h2>
+<p>Les widgets lisent vos dates et la ligne choisie dans un fichier que l'app conserve dans un dossier partagé sur votre iPhone ; ce fichier ne quitte jamais l'appareil.</p>
+</section>
+<section>
+<h2>6. L&#x27;achat</h2>
+<p>Apple traite l'achat unique via l'App Store. L'app vérifie seulement, sur votre iPhone, si l'achat est présent ; nous ne recevons ni votre nom, ni votre compte Apple, ni vos informations de paiement.</p>
+</section>
+<section>
+<h2>7. Sauvegardes, exports et image à partager</h2>
+<p>Les sauvegardes créées par Goalpot sont des fichiers sur votre iPhone. Lorsque vous partagez une sauvegarde, exportez un fichier CSV ou partagez l'image « Sans dettes en… », le fichier est créé sur votre iPhone et ne va que là où vous l'envoyez avec la feuille de partage (Mail, Messages, Fichiers, AirDrop ou une autre app). Lorsque vous restaurez depuis un fichier, celui-ci est lu sur votre iPhone. Ces transferts sont pris en charge par Apple ou par l'app que vous choisissez, pas par nous.</p>
+</section>
+<section>
+<h2>8. Évaluations</h2>
+<p>Une seule fois, après votre premier jalon — une dette remboursée, un objectif atteint ou une ligne arrivée au quart du chemin — l'app peut afficher la demande d'évaluation standard d'Apple. Le fait de noter, et la manière de le faire, sont entièrement gérés par Apple ; l'app conserve seulement, sur votre iPhone, le fait qu'elle a déjà posé la question.</p>
+</section>
+<section>
+<h2>9. E-mails à l&#x27;assistance</h2>
+<p>Si vous nous écrivez, nous recevons votre adresse e-mail et ce que vous envoyez, y compris la version de l'app, la version d'iOS et l'appareil que l'e-mail d'assistance de l'app ajoute. Nous utilisons ces informations uniquement pour vous répondre, ne les partageons pas et les supprimons lorsqu'elles ne sont plus nécessaires pour votre demande. La base légale est l'article 6, paragraphe 1, points b) et f), du RGPD.</p>
+</section>
+<section>
+<h2>10. Suppression de vos données</h2>
+<p>Vous pouvez supprimer des saisies, des objectifs et des dettes un par un, tout effacer avec Réglages › Données › Supprimer toutes les données, et supprimer des versions de sauvegarde dans Réglages › Données › Sauvegardes. Supprimer l'app efface toutes ses données de votre iPhone. Comme nous ne détenons aucune donnée vous concernant, nous n'avons rien à exporter ni à supprimer sur demande, hormis les e-mails que vous nous avez envoyés.</p>
+</section>
+<section>
+<h2>11. Enfants</h2>
+<p>Goalpot convient à tous les âges et ne collecte aucune donnée auprès de quiconque, y compris les enfants.</p>
+</section>
+<section>
+<h2>12. Vos droits</h2>
+<p>En vertu du RGPD et de lois similaires, vous avez le droit d'accéder aux données personnelles vous concernant, de les rectifier et de les supprimer, ainsi que d'introduire une réclamation auprès d'une autorité de protection des données. L'app ne collectant aucune donnée, ces droits ne concernent que les e-mails que vous nous avez envoyés ; écrivez à <a href="mailto:ssx51f@gmail.com">ssx51f@gmail.com</a>.</p>
+</section>
+<section>
+<h2>13. Modifications</h2>
+<p>Si cette politique change, la nouvelle version est publiée sur cette page avec une nouvelle date d'entrée en vigueur. Si l'app commençait un jour à collecter des données, la politique l'indiquerait avant la sortie de cette version.</p>
+</section>
+<section>
+<h2>14. Contact</h2>
+<p>Pour toute question sur cette politique de confidentialité, écrivez à <a href="mailto:ssx51f@gmail.com">ssx51f@gmail.com</a>.</p>
+</section>
+</article>
+</main>
+<footer class="wrap">
+    <nav><a href="../support/">Assistance</a> <a href="./">Politique de confidentialité</a> <a href="../terms/">Conditions d&#x27;utilisation</a></nav>
+    <p>&copy; 2026 Sergei Stasenko. Tous droits réservés.</p>
+</footer>
+</body>
+</html>
